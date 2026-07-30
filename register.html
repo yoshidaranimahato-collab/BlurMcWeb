@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <title>BlurMC Register</title>
 
 <style>
@@ -10,7 +9,6 @@ background:#080808;
 color:white;
 font-family:Arial;
 }
-
 .box{
 width:350px;
 margin:100px auto;
@@ -19,37 +17,34 @@ padding:25px;
 border:2px solid red;
 border-radius:15px;
 }
-
 h1{
-text-align:center;
 color:red;
+text-align:center;
 }
-
-input{
+input,button{
 width:100%;
 padding:12px;
 margin-top:15px;
+border-radius:8px;
+}
+input{
 background:#222;
 color:white;
 border:1px solid red;
-border-radius:8px;
 }
-
 button{
-width:100%;
-padding:12px;
-margin-top:20px;
 background:red;
 color:white;
 border:none;
-border-radius:8px;
+}
+a{
+color:red;
 }
 </style>
 
 </head>
 
 <body>
-
 
 <div class="box">
 
@@ -59,9 +54,12 @@ border-radius:8px;
 
 <input id="password" type="password" placeholder="Password">
 
-
 <button onclick="register()">Register</button>
 
+<p>
+Already have account?
+<a href="login.html">Login</a>
+</p>
 
 </div>
 
@@ -84,14 +82,13 @@ localStorage.setItem("BlurMC_User",username);
 localStorage.setItem("BlurMC_Pass",password);
 
 
-alert("Account Created!");
+alert("Register Successful!");
 
 window.location.href="login.html";
 
 }
 
 </script>
-
 
 </body>
 </html>
