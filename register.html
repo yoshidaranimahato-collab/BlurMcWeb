@@ -1,93 +1,55 @@
-<nav>
-  <div class="logo">BlurMC</div>
-
-  <div class="menu">
-    <a href="index.html">Home</a>
-    <a href="staff.html">Staff Apply</a>
-    <a href="media.html">Media</a>
-    <a href="guidelines.html">Rules</a>
-    <span id="authButtons"></span>
-  </div>
-</nav>
-
-<style>
-nav{
-    background:#111;
-    border-bottom:2px solid red;
-    padding:10px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    color:red;
-    font-size:22px;
-    font-weight:bold;
-}
-
-.menu a{
-    color:white;
-    text-decoration:none;
-    margin-left:15px;
-    font-size:14px;
-}
-
-.menu a:hover{
-    color:red;
-}
-</style>
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>BlurMC Register</title>
 
 <style>
 body{
-    background:#080808;
-    color:white;
-    font-family:Arial;
+background:#080808;
+color:white;
+font-family:Arial;
 }
 
 .box{
-    width:350px;
-    margin:100px auto;
-    background:#151515;
-    padding:25px;
-    border:2px solid red;
-    border-radius:15px;
+width:350px;
+margin:100px auto;
+background:#151515;
+padding:25px;
+border:2px solid red;
+border-radius:15px;
 }
 
 h1{
-    text-align:center;
-    color:red;
+text-align:center;
+color:red;
 }
 
 input{
-    width:100%;
-    padding:12px;
-    margin-top:15px;
-    background:#222;
-    color:white;
-    border:1px solid red;
-    border-radius:8px;
+width:100%;
+padding:12px;
+margin-top:15px;
+background:#222;
+color:white;
+border:1px solid red;
+border-radius:8px;
 }
 
 button{
-    width:100%;
-    padding:12px;
-    margin-top:20px;
-    background:red;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
+width:100%;
+padding:12px;
+margin-top:20px;
+background:red;
+color:white;
+border:none;
+border-radius:8px;
 }
 </style>
 
 </head>
 
 <body>
+
 
 <div class="box">
 
@@ -97,7 +59,9 @@ button{
 
 <input id="password" type="password" placeholder="Password">
 
-<button onclick="register()">Create Account</button>
+
+<button onclick="register()">Register</button>
+
 
 </div>
 
@@ -106,21 +70,21 @@ button{
 
 function register(){
 
-let username = document.getElementById("username").value;
-let password = document.getElementById("password").value;
+let username=document.getElementById("username").value;
+let password=document.getElementById("password").value;
 
 
 if(username=="" || password==""){
-alert("Please fill all details");
+alert("Fill all details");
 return;
 }
 
 
-localStorage.setItem("BlurMC_User", username);
-localStorage.setItem("BlurMC_Pass", password);
+localStorage.setItem("BlurMC_User",username);
+localStorage.setItem("BlurMC_Pass",password);
 
 
-alert("Account Created Successfully!");
+alert("Account Created!");
 
 window.location.href="login.html";
 
