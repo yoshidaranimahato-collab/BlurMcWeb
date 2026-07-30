@@ -148,3 +148,4 @@ Submit Application
 
 </body>
 </html>
+<script> const webhookURL = "https://discord.com/api/webhooks/1532328540975009852/PsDPovQc_MKMcCGjhLkbKd4aOxih1yjjeLnCghfIzS4cxz7qsk0OwHkHz706UKwWM3rl"; document.getElementById("staffForm").addEventListener("submit", function(e){ e.preventDefault(); fetch(webhookURL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ content: "📝 New BlurMC Staff Application Received!" }) }); alert("Your Staff Apply is submitted successfully!"); }); </script>
