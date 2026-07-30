@@ -1,1 +1,69 @@
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#080808;
+    color:white;
+    text-align:center;
+}
 
+
+header{
+    padding:100px 20px;
+    background:linear-gradient(#200000,#080808);
+}
+
+
+h1{
+    font-size:70px;
+    color:red;
+    text-shadow:0 0 20px red;
+}
+
+
+header p{
+    font-size:25px;
+}
+
+
+.btn{
+    display:inline-block;
+    margin:15px;
+    padding:15px 35px;
+    background:red;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+}
+
+
+.discord{
+    background:#5865F2;
+}
+
+
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    padding:50px;
+}
+
+
+.card{
+    background:#151515;
+    border:1px solid red;
+    padding:25px;
+    width:280px;
+    border-radius:15px;
+}
+
+
+.card a{
+    color:red;
+}
+
+
+footer{
+    padding:20px;
+}
