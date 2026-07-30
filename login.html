@@ -1,45 +1,7 @@
-<nav>
-  <div class="logo">BlurMC</div>
-
-  <div class="menu">
-    <a href="index.html">Home</a>
-    <a href="staff.html">Staff Apply</a>
-    <a href="media.html">Media</a>
-    <a href="guidelines.html">Rules</a>
-    <span id="authButtons"></span>
-  </div>
-</nav>
-
-<style>
-nav{
-    background:#111;
-    border-bottom:2px solid red;
-    padding:10px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    color:red;
-    font-size:22px;
-    font-weight:bold;
-}
-
-.menu a{
-    color:white;
-    text-decoration:none;
-    margin-left:15px;
-    font-size:14px;
-}
-
-.menu a:hover{
-    color:red;
-}
-</style>
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>BlurMC Login</title>
 
 <style>
@@ -81,13 +43,17 @@ button{
     color:white;
     border:none;
     border-radius:8px;
-    cursor:pointer;
+}
+
+a{
+    color:red;
 }
 </style>
 
 </head>
 
 <body>
+
 
 <div class="box">
 
@@ -99,7 +65,13 @@ button{
 
 <button onclick="login()">Login</button>
 
+<p>
+Don't have account?
+<a href="register.html">Register</a>
+</p>
+
 </div>
+
 
 
 <script>
@@ -116,15 +88,22 @@ let savedPass = localStorage.getItem("BlurMC_Pass");
 
 if(username === savedUser && password === savedPass){
 
-alert("Login Successful! Welcome to BlurMC 🔥");
+
+localStorage.setItem("BlurMC_Login","true");
+localStorage.setItem("BlurMC_User",username);
+
+
+alert("Login Successful! Welcome "+username);
+
 
 window.location.href="index.html";
 
-}
 
-else{
+}else{
 
-alert("Wrong Username or Password!");
+
+alert("Wrong Username or Password");
+
 
 }
 
