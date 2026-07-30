@@ -2,19 +2,18 @@
 <html>
 <head>
 <title>BlurMC Staff Apply</title>
-<link rel="stylesheet" href="style.css">
 
 <style>
 body{
     background:#080808;
     color:white;
-    font-family:Arial;
+    font-family:Arial, sans-serif;
 }
 
 .container{
     max-width:700px;
     margin:auto;
-    padding:40px 20px;
+    padding:30px;
 }
 
 h1{
@@ -28,12 +27,11 @@ h1{
     border:2px solid red;
     border-radius:15px;
     padding:25px;
-    margin-top:20px;
 }
 
 label{
     display:block;
-    color:red;
+    color:#ff3333;
     margin-top:15px;
 }
 
@@ -42,8 +40,8 @@ input, textarea, select{
     padding:12px;
     margin-top:8px;
     background:#222;
-    border:1px solid red;
     color:white;
+    border:1px solid red;
     border-radius:8px;
 }
 
@@ -52,8 +50,8 @@ textarea{
 }
 
 button{
-    margin-top:25px;
     width:100%;
+    margin-top:25px;
     padding:15px;
     background:red;
     color:white;
@@ -63,8 +61,8 @@ button{
     cursor:pointer;
 }
 
-.roles{
-    color:#ff4444;
+button:hover{
+    background:#ff4444;
 }
 </style>
 
@@ -78,62 +76,38 @@ button{
 
 <div class="box">
 
-<h2>Available Staff Roles</h2>
-
-<p class="roles">
-🛡 Helper<br>
-🔨 Moderator<br>
-⚔ Senior Moderator<br>
-👑 Admin<br>
-💼 Manager
-</p>
-
-</div>
-
-
-<div class="box">
-
-<form>
+<form id="staffForm">
 
 <label>1. What is your Username?</label>
-<input type="text" placeholder="Minecraft Username">
+<input id="username" required>
 
+<label>2. What time you can give to our server? (IST)</label>
+<input id="time" required>
 
-<label>2. What time can you give to our server?</label>
-<input type="text" placeholder="Example: IST (India Standard Time)">
-
-
-<label>3. Where do you live?</label>
-<input type="text" placeholder="Your Location">
-
+<label>3. Where you live?</label>
+<input id="live" required>
 
 <label>4. What is your age? (Don't lie)</label>
-<input type="number" placeholder="Age">
-
+<input id="age" required>
 
 <label>5. Which country are you in?</label>
-<input type="text" placeholder="Country">
+<input id="country" required>
 
-
-<label>6. Why do you want to become a staff member of BlurMC?</label>
-<textarea placeholder="Your answer"></textarea>
-
+<label>6. Why you want to become a staff member of BlurMC?</label>
+<textarea id="reason" required></textarea>
 
 <label>7. Write 50 lines about yourself</label>
-<textarea placeholder="About yourself"></textarea>
+<textarea id="about" required></textarea>
 
-
-<label>8. Which server do you prefer to apply?</label>
-
-<select>
+<label>8. Which server you prefer to apply?</label>
+<select id="server">
 <option>Practice</option>
 <option>Lifesteal</option>
 <option>Survival</option>
 </select>
 
-
-<label>9. Why should we choose you over other applications?</label>
-<textarea placeholder="Your answer"></textarea>
+<label>9. Why we choose you on other applications?</label>
+<textarea id="choose" required></textarea>
 
 
 <button type="submit">
@@ -146,6 +120,64 @@ Submit Application
 
 </div>
 
+
+<script>
+
+const webhookURL = "https://discord.com/api/webhooks/1532333312087949342/Ao0dt46uZcigAOp1JNYWT6aV63BGFS-PT1rtuKav9MJyC_d5AM4KfPozz5Lx47Xpb-86";
+
+
+document.getElementById("staffForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+
+let message = {
+
+embeds:[{
+
+title:"📝 New BlurMC Staff Application",
+
+color:16711680,
+
+fields:[
+
+{name:"Username",value:username.value},
+{name:"Time",value:time.value},
+{name:"Live",value:live.value},
+{name:"Age",value:age.value},
+{name:"Country",value:country.value},
+{name:"Reason",value:reason.value},
+{name:"About",value:about.value},
+{name:"Server",value:server.value},
+{name:"Why Choose",value:choose.value}
+
+]
+
+}]
+
+};
+
+
+fetch(webhookURL,{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify(message)
+
+});
+
+
+alert("Your Staff Apply is submitted successfully!");
+
+});
+
+
+</script>
+
+
 </body>
 </html>
-<script> const webhookURL = "https://discord.com/api/webhooks/1532328540975009852/PsDPovQc_MKMcCGjhLkbKd4aOxih1yjjeLnCghfIzS4cxz7qsk0OwHkHz706UKwWM3rl"; document.getElementById("staffForm").addEventListener("submit", function(e){ e.preventDefault(); fetch(webhookURL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ content: "📝 New BlurMC Staff Application Received!" }) }); alert("Your Staff Apply is submitted successfully!"); }); </script>
