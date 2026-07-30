@@ -1,52 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <title>BlurMC Login</title>
 
 <style>
 body{
-    background:#080808;
-    color:white;
-    font-family:Arial;
+background:#080808;
+color:white;
+font-family:Arial;
 }
-
 .box{
-    width:350px;
-    margin:100px auto;
-    background:#151515;
-    padding:25px;
-    border:2px solid red;
-    border-radius:15px;
+width:350px;
+margin:100px auto;
+background:#151515;
+padding:25px;
+border:2px solid red;
+border-radius:15px;
 }
-
 h1{
-    text-align:center;
-    color:red;
+color:red;
+text-align:center;
 }
-
+input,button{
+width:100%;
+padding:12px;
+margin-top:15px;
+border-radius:8px;
+}
 input{
-    width:100%;
-    padding:12px;
-    margin-top:15px;
-    background:#222;
-    color:white;
-    border:1px solid red;
-    border-radius:8px;
+background:#222;
+color:white;
+border:1px solid red;
 }
-
 button{
-    width:100%;
-    padding:12px;
-    margin-top:20px;
-    background:red;
-    color:white;
-    border:none;
-    border-radius:8px;
+background:red;
+color:white;
+border:none;
 }
-
 a{
-    color:red;
+color:red;
 }
 </style>
 
@@ -66,7 +58,7 @@ a{
 <button onclick="login()">Login</button>
 
 <p>
-Don't have account?
+No account?
 <a href="register.html">Register</a>
 </p>
 
@@ -78,22 +70,21 @@ Don't have account?
 
 function login(){
 
-let username = document.getElementById("username").value;
-let password = document.getElementById("password").value;
+let username=document.getElementById("username").value;
+let password=document.getElementById("password").value;
 
 
-let savedUser = localStorage.getItem("BlurMC_User");
-let savedPass = localStorage.getItem("BlurMC_Pass");
+let user=localStorage.getItem("BlurMC_User");
+let pass=localStorage.getItem("BlurMC_Pass");
 
 
-if(username === savedUser && password === savedPass){
+if(username==user && password==pass){
 
 
 localStorage.setItem("BlurMC_Login","true");
-localStorage.setItem("BlurMC_User",username);
 
 
-alert("Login Successful! Welcome "+username);
+alert("Welcome "+username);
 
 
 window.location.href="index.html";
@@ -101,9 +92,7 @@ window.location.href="index.html";
 
 }else{
 
-
 alert("Wrong Username or Password");
-
 
 }
 
