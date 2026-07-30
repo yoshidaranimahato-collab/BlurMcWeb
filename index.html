@@ -62,4 +62,38 @@ nav{
 </footer>
 
 </body>
+  <script>
+
+let auth=document.getElementById("authButtons");
+
+let user=localStorage.getItem("BlurMC_User");
+let login=localStorage.getItem("BlurMC_Login");
+
+
+if(login=="true"){
+
+auth.innerHTML=`
+<span style="color:red;">${user}</span>
+<a href="#" onclick="logout()">Logout</a>
+`;
+
+}else{
+
+auth.innerHTML=`
+<a href="login.html">Login</a>
+<a href="register.html">Register</a>
+`;
+
+}
+
+
+function logout(){
+
+localStorage.removeItem("BlurMC_Login");
+
+location.reload();
+
+}
+
+  </script>
 </html>
