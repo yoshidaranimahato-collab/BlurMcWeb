@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BlurMC Register</title>
 
+<style>
+body{
+    background:#080808;
+    color:white;
+    font-family:Arial;
+}
+
+.box{
+    width:350px;
+    margin:100px auto;
+    background:#151515;
+    padding:25px;
+    border:2px solid red;
+    border-radius:15px;
+}
+
+h1{
+    text-align:center;
+    color:red;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    background:#222;
+    color:white;
+    border:1px solid red;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    background:red;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>BlurMC Register</h1>
+
+<input id="username" placeholder="Username">
+
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="register()">Create Account</button>
+
+</div>
+
+
+<script>
+
+function register(){
+
+let username = document.getElementById("username").value;
+let password = document.getElementById("password").value;
+
+
+if(username=="" || password==""){
+alert("Please fill all details");
+return;
+}
+
+
+localStorage.setItem("BlurMC_User", username);
+localStorage.setItem("BlurMC_Pass", password);
+
+
+alert("Account Created Successfully!");
+
+window.location.href="login.html";
+
+}
+
+</script>
+
+
+</body>
+</html>
