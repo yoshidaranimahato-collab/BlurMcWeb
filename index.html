@@ -54,6 +54,63 @@ nav{
 <a class="btn discord" href="https://discord.gg/XySEtMm3Mx" target="_blank">Discord</a>
 </header>
 
+<div class="status-box">
+
+    <h1>
+        <span class="green">24/7</span>
+        <br>
+        <span class="red" id="realTime">Loading...</span>
+    </h1>
+
+</div>
+
+
+<style>
+
+.status-box{
+    background:#151515;
+    border:2px solid red;
+    border-radius:15px;
+    padding:25px;
+    margin:20px auto;
+    max-width:500px;
+    text-align:center;
+    box-shadow:0 0 15px red;
+}
+
+.green{
+    color:#00ff00;
+    font-size:35px;
+    font-weight:bold;
+}
+
+.red{
+    color:red;
+    font-size:30px;
+    font-weight:bold;
+}
+
+</style>
+
+
+<script>
+
+function updateTime(){
+
+let now = new Date();
+
+let time = now.toLocaleTimeString();
+
+document.getElementById("realTime").innerHTML = time;
+
+}
+
+setInterval(updateTime,1000);
+
+updateTime();
+
+</script>
+  
 </section>
 
 
