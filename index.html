@@ -7,7 +7,108 @@
     <a href="media.html">Media</a>
     <a href="guidelines.html">Rules</a>
     <span id="authButtons"></span>
-    <button id="themeBtn">🌙</button>
+    <div class="mc-search">
+
+<input id="mcName" placeholder="Minecraft Username">
+
+<button onclick="searchPlayer()">🔍</button>
+
+</div>
+
+
+</div>
+
+
+<div id="playerResult"></div>
+
+
+
+<style>
+
+.menu{
+display:flex;
+align-items:center;
+gap:15px;
+padding:10px;
+}
+
+
+.menu a{
+color:white;
+text-decoration:none;
+}
+
+
+.mc-search{
+display:flex;
+gap:5px;
+}
+
+
+.mc-search input{
+width:150px;
+padding:7px;
+border-radius:8px;
+border:1px solid red;
+background:#111;
+color:white;
+}
+
+
+.mc-search button{
+padding:7px 10px;
+background:red;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+
+#playerResult{
+display:flex;
+align-items:center;
+gap:15px;
+margin:15px;
+font-size:20px;
+color:white;
+}
+
+
+#playerResult img{
+width:64px;
+height:64px;
+border-radius:8px;
+}
+
+</style>
+
+
+
+<script>
+
+async function searchPlayer(){
+
+let name=document.getElementById("mcName").value;
+
+
+if(name==""){
+alert("Enter Minecraft Username");
+return;
+}
+
+
+document.getElementById("playerResult").innerHTML=`
+
+<img src="https://mc-heads.net/avatar/${name}/64">
+
+<span>${name}</span>
+
+`;
+
+}
+
+  </script>
   </div>
 </nav>
 
