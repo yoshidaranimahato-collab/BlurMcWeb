@@ -1,1 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>BlurMc | Media Apply</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#000;
+    color:white;
+}
+
+header{
+    text-align:center;
+    padding:40px 20px;
+    background:#050505;
+    border-bottom:2px solid red;
+    box-shadow:0 0 25px red;
+}
+
+header h1{
+    font-size:45px;
+    color:red;
+    text-shadow:0 0 15px red;
+}
+
+header p{
+    color:#aaa;
+    margin-top:10px;
+}
+
+
+.container{
+    padding:40px 8%;
+}
+
+
+.media-box{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+
+.card{
+    background:#080808;
+    border:2px solid red;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 0 20px red;
+    transition:.3s;
+}
+
+
+.card:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 40px red;
+}
+
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+
+.card h2{
+    margin-top:15px;
+    color:red;
+}
+
+
+.card p{
+    color:#ccc;
+    margin-top:8px;
+}
+
+
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 25px;
+    background:red;
+    color:white;
+    text-decoration:none;
+    border-radius:20px;
+    box-shadow:0 0 15px red;
+}
+
+
+footer{
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+    border-top:1px solid red;
+    color:#777;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+<h1>🔥 BlurMC Media</h1>
+
+<p>Latest Updates • Events • Screenshots • Videos</p>
+
+</header>
+
+
+<div class="container">
+
+<div class="media-box">
+
+
+<div class="card">
+
+<img src="https://via.placeholder.com/500x300">
+
+<h2>Server Updates</h2>
+
+<p>Check our latest Minecraft updates and news.</p>
+
+<a class="btn" href="#">View</a>
+
+</div>
+
+
+
+<div class="card">
+
+<img src="https://via.placeholder.com/500x300">
+
+<h2>Community</h2>
+
+<p>Players, events and amazing moments.</p>
+
+<a class="btn" href="#">View</a>
+
+</div>
+
+
+
+
+<div class="card">
+
+<img src="https://via.placeholder.com/500x300">
+
+<h2>Videos</h2>
+
+<p>Watch our gameplay and trailers.</p>
+
+<a class="btn" href="#">Watch</a>
+
+</div>
+
+
+
+<div class="card">
+
+<img src="https://via.placeholder.com/500x300">
+
+<h2>Screenshots</h2>
+
+<p>Beautiful builds and server moments.</p>
+
+<a class="btn" href="#">Open</a>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+<footer>
+
+© 2026 BlurMC Network | All Rights Reserved
+
+</footer>
+
+
+</body>
+</html>
