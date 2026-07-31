@@ -1,105 +1,189 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>BlurMC Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - BlurMC</title>
+  
+  <!-- External CSS Link -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* Login Form Container Styling */
+    .form-container {
+      width: 100%;
+      max-width: 450px;
+      margin: 60px auto;
+      padding: 35px;
+      background: rgba(16, 16, 16, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(229, 9, 20, 0.3);
+    }
 
-<style>
-body{
-background:#080808;
-color:white;
-font-family:Arial;
-}
-.box{
-width:350px;
-margin:100px auto;
-background:#151515;
-padding:25px;
-border:2px solid red;
-border-radius:15px;
-}
-h1{
-color:red;
-text-align:center;
-}
-input,button{
-width:100%;
-padding:12px;
-margin-top:15px;
-border-radius:8px;
-}
-input{
-background:#222;
-color:white;
-border:1px solid red;
-}
-button{
-background:red;
-color:white;
-border:none;
-}
-a{
-color:red;
-}
-</style>
+    .form-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
 
+    .form-header h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .form-header h2 span {
+      color: #e50914;
+    }
+
+    .form-header p {
+      color: #a8a8a8;
+      font-size: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #dddddd;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .form-group input:focus {
+      border-color: #e50914;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .forgot-pass {
+      text-align: right;
+      margin-bottom: 20px;
+    }
+
+    .forgot-pass a {
+      color: #a8a8a8;
+      font-size: 12px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .forgot-pass a:hover {
+      color: #e50914;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background: #e50914;
+      border: none;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-submit:hover {
+      background: #ff0f1a;
+      transform: translateY(-2px);
+    }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #a8a8a8;
+    }
+
+    .form-footer a {
+      color: #e50914;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-
 <body>
 
+  <!-- Navigation -->
+  <header>
+    <div class="logo">BLUR<span>MC</span></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="vote.html">Vote</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="staffapply.html">Staff Apply</a></li>
+        <li><a href="mediaapply.html">Media</a></li>
+        <li><a href="rules.html">Rules</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </nav>
+    <div class="nav-buttons">
+      <button class="btn-login" onclick="location.href='login.html'">Login</button>
+      <button class="btn-register" onclick="location.href='register.html'">Register</button>
+    </div>
+  </header>
 
-<div class="box">
+  <!-- Login Form Container -->
+  <div class="form-container">
+    <div class="form-header">
+      <h2>ACCOUNT <span>LOGIN</span></h2>
+      <p>Login to access your BlurMC account</p>
+    </div>
 
-<h1>BlurMC Login</h1>
+    <form id="standaloneLoginForm">
+      <!-- Username or Email -->
+      <div class="form-group">
+        <label for="login-username"><i class="fa-solid fa-user"></i> Username or Email</label>
+        <input type="text" id="login-username" placeholder="Enter username or email" required>
+      </div>
 
-<input id="username" placeholder="Username">
+      <!-- Password -->
+      <div class="form-group">
+        <label for="login-password"><i class="fa-solid fa-lock"></i> Password</label>
+        <input type="password" id="login-password" placeholder="Enter password" required>
+      </div>
 
-<input id="password" type="password" placeholder="Password">
+      <!-- Forgot Password Option -->
+      <div class="forgot-pass">
+        <a href="#">Forgot Password?</a>
+      </div>
 
-<button onclick="login()">Login</button>
+      <!-- Submit Button -->
+      <button type="submit" class="btn-submit"><i class="fa-solid fa-right-to-bracket"></i> Login Account</button>
+    </form>
 
-<p>
-No account?
-<a href="register.html">Register</a>
-</p>
+    <div class="form-footer">
+      <p>Don't have an account? <a href="register.html">Register Here</a></p>
+    </div>
+  </div>
 
-</div>
-
-
-
-<script>
-
-function login(){
-
-let username=document.getElementById("username").value;
-let password=document.getElementById("password").value;
-
-
-let user=localStorage.getItem("BlurMC_User");
-let pass=localStorage.getItem("BlurMC_Pass");
-
-
-if(username==user && password==pass){
-
-
-localStorage.setItem("BlurMC_Login","true");
-
-
-alert("Welcome "+username);
-
-
-window.location.href="index.html";
-
-
-}else{
-
-alert("Wrong Username or Password");
-
-}
-
-}
-
-</script>
-
-
+  <script src="script.js"></script>
 </body>
 </html>
