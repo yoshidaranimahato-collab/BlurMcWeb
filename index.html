@@ -1,340 +1,372 @@
-<nav>
-  <div class="logo">BlurMC</div>
-
-  <div class="menu">
-    <a href="index.html">Home</a>
-    <a href="staff.html">Staff Apply</a>
-    <a href="media.html">Media</a>
-    <a href="guidelines.html">Rules</a>
-    <span id="authButtons"></span>
-    <div class="mc-search">
-
-<input id="mcName" placeholder="Minecraft Username">
-
-<button onclick="searchPlayer()">🔍</button>
-
-</div>
-
-
-</div>
-
-
-<div id="playerResult"></div>
-
-
-
-<style>
-
-.menu{
-display:flex;
-align-items:center;
-gap:15px;
-padding:10px;
-}
-
-
-.menu a{
-color:white;
-text-decoration:none;
-}
-
-
-.mc-search{
-display:flex;
-gap:5px;
-}
-
-
-.mc-search input{
-width:150px;
-padding:7px;
-border-radius:8px;
-border:1px solid red;
-background:#111;
-color:white;
-}
-
-
-.mc-search button{
-padding:7px 10px;
-background:red;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-}
-
-
-#playerResult{
-display:flex;
-align-items:center;
-gap:15px;
-margin:15px;
-font-size:20px;
-color:white;
-}
-
-
-#playerResult img{
-width:64px;
-height:64px;
-border-radius:8px;
-}
-
-</style>
-
-
-
-<script>
-
-async function searchPlayer(){
-
-let name=document.getElementById("mcName").value;
-
-
-if(name==""){
-alert("Enter Minecraft Username");
-return;
-}
-
-
-document.getElementById("playerResult").innerHTML=`
-
-<img src="https://mc-heads.net/avatar/${name}/64">
-
-<span>${name}</span>
-
-`;
-
-}
-
-  </script>
-  </div>
-</nav>
-
-<style>
-nav{
-    background:#111;
-    border-bottom:2px solid red;
-    padding:10px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    color:red;
-    font-size:22px;
-    font-weight:bold;
-}
-
-.menu a{
-    color:white;
-    text-decoration:none;
-    margin-left:15px;
-    font-size:14px;
-}
-
-.menu a:hover{
-    color:red;
-}
-</style>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>BlurMC Network</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlurMC - Official Website</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-#themeBtn{
-    position:fixed;
-    right:20px;
-    top:20px;
-    font-size:25px;
-    background:#222;
-    color:white;
-    border:none;
-    border-radius:50%;
-    width:50px;
-    height:50px;
-    cursor:pointer;
-<button id="themeBtn">🌙</button>
+    body {
+      background-color: #080808;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-image: radial-gradient(circle at center top, rgba(200, 0, 0, 0.25) 0%, rgba(8, 8, 8, 1) 70%);
+      background-repeat: no-repeat;
+    }
 
-<style>
+    /* Navbar */
+    header {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+    }
 
-#themeBtn{
-    position:fixed;
-    right:20px;
-    top:20px;
-    font-size:25px;
-    background:#222;
-    color:white;
-    border:none;
-    border-radius:50%;
-    width:50px;
-    height:50px;
-    cursor:pointer;
-    z-index:999;
-}
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #fff;
+    }
 
+    .logo span {
+      color: #e50914;
+    }
 
-.light-mode{
-    background:white !important;
-    color:black !important;
-}
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
 
+    nav a {
+      color: #b3b3b3;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
 
-.light-mode .menu,
-.light-mode .card,
-.light-mode .status-box,
-.light-mode .box{
-    background:white !important;
-    color:black !important;
-}
+    nav a.active, nav a:hover {
+      color: #ffffff;
+    }
 
+    .nav-buttons {
+      display: flex;
+      gap: 12px;
+    }
 
-.light-mode a{
-    color:black !important;
-}
+    .btn-login {
+      background: transparent;
+      border: 1px solid #333;
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
 
+    .btn-register {
+      background: #e50914;
+      border: none;
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
 
-</style>
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
+    .main-logo {
+      font-size: 80px;
+      font-weight: 900;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(229, 9, 20, 0.6);
+      line-height: 0.9;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
 
-<script>
+    .hero-subtitle {
+      font-size: 18px;
+      color: #cccccc;
+      margin-bottom: 30px;
+    }
 
-let btn = document.getElementById("themeBtn");
+    .hero-subtitle span {
+      color: #e50914;
+      font-weight: bold;
+    }
 
+    .action-buttons {
+      display: flex;
+      gap: 15px;
+    }
 
-btn.onclick = function(){
+    .btn-action {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      text-decoration: none;
+    }
 
-document.documentElement.classList.toggle("light-mode");
+    .btn-red {
+      background: #e50914;
+      color: #fff;
+      border: none;
+      box-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
+    }
 
+    .btn-dark {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #333;
+      color: #fff;
+    }
 
-if(document.documentElement.classList.contains("light-mode")){
+    /* Server Stats Bar */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      background: rgba(15, 15, 15, 0.6);
+      border: 1px solid #222;
+      padding: 15px 40px;
+      border-radius: 30px;
+      margin-bottom: 50px;
+      backdrop-filter: blur(5px);
+    }
 
-btn.innerHTML="☀️";
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 600;
+    }
 
-}else{
+    .dot-green {
+      height: 10px;
+      width: 10px;
+      background-color: #2eb85c;
+      border-radius: 50%;
+      display: inline-block;
+    }
 
-btn.innerHTML="🌙";
+    /* Cards Grid */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 20px;
+      width: 100%;
+      max-width: 1100px;
+      padding: 0 20px 50px 20px;
+    }
 
-}
+    .card {
+      background: rgba(18, 18, 18, 0.8);
+      border: 1px solid #262626;
+      border-radius: 12px;
+      padding: 24px;
+    }
 
-}
+    .card-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #e50914;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
 
-</script>
+    /* Server Status Card */
+    .mode-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
 
-</script>
+    .mode-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 10px 14px;
+      border-radius: 8px;
+    }
 
-<header>
-<h1>BlurMC</h1>
-<p>Minecraft Network</p>
+    .mode-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-<a class="btn" href="#">PLAY.BLURMC.NET</a>
-<a class="btn discord" href="https://discord.gg/XySEtMm3Mx" target="_blank">Discord</a>
-</header>
+    .mode-count {
+      color: #2eb85c;
+      font-size: 13px;
+      font-weight: 600;
+    }
 
-<div class="status-box">
+    /* Welcome Card */
+    .welcome-text {
+      color: #a0a0a0;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
 
-    <h1>
-        <span class="green">24/7</span>
-        <br>
-        <span class="red" id="realTime">Loading...</span>
-    </h1>
+    .btn-learn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      border: 1px solid #e50914;
+      color: #e50914;
+      padding: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: 0.3s;
+    }
 
-</div>
+    .btn-learn:hover {
+      background: #e50914;
+      color: #fff;
+    }
 
+    /* Announcement Card */
+    .announcement-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
 
-<style>
+    .announcement-desc {
+      color: #a0a0a0;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
 
-.status-box{
-    background:#151515;
-    border:2px solid red;
-    border-radius:15px;
-    padding:25px;
-    margin:20px auto;
-    max-width:500px;
-    text-align:center;
-    box-shadow:0 0 15px red;
-}
+    .announcement-date {
+      color: #666;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
 
-.green{
-    color:#00ff00;
-    font-size:35px;
-    font-weight:bold;
-}
+  <!-- Navigation -->
+  <header>
+    <div class="logo">BLUR<span>MC</span></div>
+    <nav>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Vote</a></li>
+        <li><a href="#">Store</a></li>
+        <li><a href="#">Staff Apply</a></li>
+        <li><a href="#">Media</a></li>
+        <li><a href="#">Rules</a></li>
+        <li><a href="#">Support</a></li>
+      </ul>
+    </nav>
+    <div class="nav-buttons">
+      <button class="btn-login">Login</button>
+      <button class="btn-register">Register</button>
+    </div>
+  </header>
 
-.red{
-    color:red;
-    font-size:30px;
-    font-weight:bold;
-}
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1 class="main-logo">BLUR<br>MC</h1>
+    <p class="hero-subtitle">Play. Grind. <span>Dominate.</span></p>
+    
+    <div class="action-buttons">
+      <a href="#" class="btn-action btn-red"><i class="fa-solid fa-play"></i> Join Server</a>
+      <a href="#" class="btn-action btn-dark"><i class="fa-brands fa-discord"></i> Discord</a>
+      <a href="#" class="btn-action btn-dark"><i class="fa-solid fa-cart-shopping"></i> Store</a>
+    </div>
+  </section>
 
-</style>
+  <!-- Server Stats Bar -->
+  <div class="stats-bar">
+    <div class="stat-item"><span class="dot-green"></span> 24/7 Online</div>
+    <div class="stat-item"><i class="fa-solid fa-user-group" style="color: #888;"></i> 128 Players Online</div>
+    <div class="stat-item"><i class="fa-solid fa-server" style="color: #888;"></i> play.blurmc.net</div>
+  </div>
 
+  <!-- Dashboard Cards -->
+  <div class="dashboard-grid">
+    
+    <!-- Card 1: Server Status -->
+    <div class="card">
+      <div class="card-title">Server Status</div>
+      <div class="mode-list">
+        <div class="mode-item">
+          <div class="mode-name"><i class="fa-solid fa-crossed-swords" style="color: #e50914;"></i> Lifesteal</div>
+          <div class="mode-count">64/100</div>
+        </div>
+        <div class="mode-item">
+          <div class="mode-name"><i class="fa-solid fa-cube" style="color: #5bba6f;"></i> Survival</div>
+          <div class="mode-count">32/100</div>
+        </div>
+        <div class="mode-item">
+          <div class="mode-name"><i class="fa-solid fa-bullseye" style="color: #e50914;"></i> Practice</div>
+          <div class="mode-count">16/100</div>
+        </div>
+      </div>
+    </div>
 
-<script>
+    <!-- Card 2: Welcome -->
+    <div class="card">
+      <div class="card-title">Welcome to BlurMC</div>
+      <p class="welcome-text">
+        The ultimate Minecraft network experience. Join thousands of players in our Lifesteal, Survival and Practice servers!
+      </p>
+      <a href="#" class="btn-learn">Learn More</a>
+    </div>
 
-function updateTime(){
+    <!-- Card 3: Recent Announcement -->
+    <div class="card">
+      <div class="card-title">Recent Announcement</div>
+      <div class="announcement-title">Lifesteal Season 2 has started!</div>
+      <div class="announcement-desc">Check out the new update and events.</div>
+      <div class="announcement-date">
+        <i class="fa-regular fa-calendar"></i> July 30, 2025
+      </div>
+    </div>
 
-let now = new Date();
-
-let time = now.toLocaleTimeString();
-
-document.getElementById("realTime").innerHTML = time;
-
-}
-
-setInterval(updateTime,1000);
-
-updateTime();
-
-</script>
-  
-</section>
-
-
-<footer>
-<p>© 2026 BlurMC Network</p>
-</footer>
+  </div>
 
 </body>
-  <script>
-
-let auth=document.getElementById("authButtons");
-
-let user=localStorage.getItem("BlurMC_User");
-let login=localStorage.getItem("BlurMC_Login");
-
-
-if(login=="true"){
-
-auth.innerHTML=`
-<span style="color:red;">${user}</span>
-<a href="#" onclick="logout()">Logout</a>
-`;
-
-}else{
-
-auth.innerHTML=`
-<a href="login.html">Login</a>
-<a href="register.html">Register</a>
-`;
-
-}
-
-
-function logout(){
-
-localStorage.removeItem("BlurMC_Login");
-
-location.reload();
-
-}
-
-  </script>
 </html>
