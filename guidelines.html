@@ -1,126 +1,253 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>BlurMC Server Rules</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Server Rules - BlurMC</title>
+  
+  <!-- External CSS Link -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* Rules Container Styles */
+    .rules-container {
+      width: 100%;
+      max-width: 900px;
+      margin: 40px auto 60px auto;
+      padding: 35px;
+      background: rgba(16, 16, 16, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
 
-<style>
-body{
-    background:#080808;
-    color:white;
-    font-family:Arial,sans-serif;
-}
+    .rules-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-.container{
-    max-width:850px;
-    margin:auto;
-    padding:25px;
-}
+    .rules-header h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
 
-h1{
-    text-align:center;
-    color:red;
-    text-shadow:0 0 15px red;
-}
+    .rules-header h2 span {
+      color: #e50914;
+    }
 
-.box{
-    background:#151515;
-    border:2px solid red;
-    border-radius:15px;
-    padding:20px;
-    margin-top:25px;
-}
+    .rules-header p {
+      color: #a8a8a8;
+      font-size: 14px;
+    }
 
-h2{
-    color:#ff3333;
-}
+    /* Rules Tabs Navigation */
+    .rules-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
 
-li{
-    margin:12px 0;
-}
-</style>
+    .tab-btn {
+      padding: 12px 24px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: #a8a8a8;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
+    .tab-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .tab-btn.active {
+      background: #e50914;
+      color: #ffffff;
+      border-color: #ff2a35;
+      box-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
+    }
+
+    /* Rules Content Sections */
+    .rules-content {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .rules-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .rule-box {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 4px solid #e50914;
+      padding: 18px;
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 15px;
+    }
+
+    .rule-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .rule-title span {
+      color: #e50914;
+    }
+
+    .rule-desc {
+      color: #a8a8a8;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .rules-tabs {
+        flex-direction: column;
+      }
+      .tab-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
+  <!-- Navigation -->
+  <header>
+    <div class="logo">BLUR<span>MC</span></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="vote.html">Vote</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="staffapply.html">Staff Apply</a></li>
+        <li><a href="mediaapply.html">Media</a></li>
+        <li><a href="guidelines.html" class="active">Rules</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </nav>
+    <div class="nav-buttons">
+      <button class="btn-login" onclick="location.href='login.html'">Login</button>
+      <button class="btn-register" onclick="location.href='register.html'">Register</button>
+    </div>
+  </header>
 
-<h1>🛡️ BlurMC Server Rules 🛡️</h1>
+  <!-- Rules Main Container -->
+  <div class="rules-container">
+    <div class="rules-header">
+      <h2>SERVER <span>RULES & GUIDELINES</span></h2>
+      <p>Please strictly follow these rules to maintain a safe and fair environment on BlurMC.</p>
+    </div>
 
+    <!-- Mode Filter Tabs -->
+    <div class="rules-tabs">
+      <button class="tab-btn active" onclick="switchRules('lifesteal', this)">
+        <i class="fa-solid fa-skull"></i> Lifesteal Rules
+      </button>
+      <button class="tab-btn" onclick="switchRules('survival', this)">
+        <i class="fa-solid fa-cube"></i> Survival Rules
+      </button>
+      <button class="tab-btn" onclick="switchRules('practice', this)">
+        <i class="fa-solid fa-bullseye"></i> Practice Rules
+      </button>
+    </div>
 
-<div class="box">
+    <!-- 1. LIFESTEAL RULES -->
+    <div id="lifesteal" class="rules-content active">
+      <div class="rule-box">
+        <div class="rule-title"><span>#1</span> No Hacking or Unfair Clients</div>
+        <div class="rule-desc">Any use of X-Ray, Auto-Clicker, Killaura, Fly, or modified clients is strictly forbidden and results in a permanent ban.</div>
+      </div>
+      <div class="rule-box">
+        <div class="rule-title"><span>#2</span> No Combat Logging</div>
+        <div class="rule-desc">Disconnecting during active PvP combat to save your hearts/items will trigger an automatic death penalties.</div>
+      </div>
+      <div class="rule-box">
+        <div class="rule-title"><span>#3</span> Allowed: Trapping & Griefing</div>
+        <div class="rule-desc">Trapping and raiding base builds are ALLOWED in Lifesteal mode. Play carefully and defend your base!</div>
+      </div>
+      <div class="rule-box">
+        <div class="rule-title"><span>#4</span> Alt Account Abuse</div>
+        <div class="rule-desc">Using alt accounts to farming extra hearts or circumvent bans is prohibited.</div>
+      </div>
+    </div>
 
-<h2>❤️ LifeSteal Rules</h2>
+    <!-- 2. SURVIVAL RULES -->
+    <div id="survival" class="rules-content">
+      <div class="rule-box">
+        <div class="rule-title"><span>#1</span> No Griefing Claimed Land</div>
+        <div class="rule-desc">Stealing or destroying builds inside claimed regions is strictly illegal. Respect other players' creations.</div>
+      </div>
+      <div class="rule-box">
+        <div class="rule-title"><span>#2</span> Respectful Community Chat</div>
+        <div class="rule-desc">No toxicity, hate speech, spamming, or self-promotion of other servers in public chat.</div>
+      </div>
+      <div class="rule-box">
+        <div class="rule-title"><span>#3</span> Lag Machines Prohibited</div>
+        <div class="rule-desc">Building excessive redstone clocks or huge mob farms that deliberately cause TPS drops is not allowed.</div>
+      </div>
+    </div>
 
-<ul>
-<li>❤️ Heart farming is not allowed.</li>
-<li>⚔️ Do not kill players using unfair methods.</li>
-<li>🤝 Teaming with cheaters is not allowed.</li>
-<li>🐛 Bug abuse and glitch abuse are forbidden.</li>
-<li>🏗️ Lag machines are strictly prohibited.</li>
-<li>💎 Duping items or abusing exploits is not allowed.</li>
-<li>🚫 Hacked clients, autoclickers and unfair mods are forbidden.</li>
-<li>📢 Advertising other servers will result in punishment.</li>
-<li>🔊 Spamming and toxic behaviour is not allowed.</li>
-<li>👨‍✈️ Respect staff decisions.</li>
-</ul>
+    <!-- 3. PRACTICE RULES -->
+    <div id="practice" class="rules-content">
+      <div class="rule-box">
+        <div class="rule-title"><span>#1</span> Fair Play PvP</div>
+        <div class="rule-desc">Macroing, drag-clicking above 20 CPS, or abusing bugs/glitches will get you instantly temp-banned.</div>
+      </div>
+      <div class="rule-box">
+        <div class="rule-title"><span>#2</span> No Elo Boosting</div>
+        <div class="rule-desc">Intentionally throwing matches or boosting stats with friends in ranked matches is forbidden.</div>
+      </div>
+      <div class="rule-box">
+        <div class="rule-title"><span>#3</span> Respect Opponents</div>
+        <div class="rule-desc">Keep sportsmanship alive. Toxic behavior or abusive language after matches is punishable.</div>
+      </div>
+    </div>
 
-</div>
+  </div>
 
+  <script src="script.js"></script>
+  <script>
+    // Tab switching JavaScript logic
+    function switchRules(modeId, element) {
+      // Hide all rule contents
+      const contents = document.querySelectorAll('.rules-content');
+      contents.forEach(c => c.classList.remove('active'));
 
+      // Remove active state from all buttons
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(b => b.classList.remove('active'));
 
-<div class="box">
-
-<h2>🌲 Survival Rules</h2>
-
-<ul>
-<li>🏠 Do not grief other players' builds.</li>
-<li>🧱 Do not steal from other players.</li>
-<li>⚔️ No unfair PvP methods.</li>
-<li>🔥 Do not destroy the world unnecessarily.</li>
-<li>🐛 No bug abuse or exploits.</li>
-<li>🚫 No hacked clients or cheats.</li>
-<li>🏗️ Do not create lag machines.</li>
-<li>🌳 Keep the environment clean and do not ruin spawn areas.</li>
-<li>🤝 Respect all players.</li>
-<li>📢 No advertising other servers.</li>
-</ul>
-
-</div>
-
-
-
-<div class="box">
-
-<h2>⚖️ Punishment System</h2>
-
-<ul>
-<li>⚠️ Warning</li>
-<li>🔇 Mute</li>
-<li>🚫 Temporary Ban</li>
-<li>☠️ Permanent Ban</li>
-</ul>
-
-<p>
-Punishment depends on the seriousness of the rule violation.
-</p>
-
-</div>
-
-
-
-<div class="box">
-
-<h2>🔥 BlurMC Community</h2>
-
-<p>
-Play fair, respect everyone and enjoy your journey on BlurMC Network!
-</p>
-
-</div>
-
-
-</div>
-
+      // Active selected content & button
+      document.getElementById(modeId).classList.add('active');
+      element.classList.add('active');
+    }
+  </script>
 </body>
 </html>
