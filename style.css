@@ -1,69 +1,352 @@
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#080808;
-    color:white;
-    text-align:center;
+/* ==========================================
+   1. GLOBAL & RESET STYLES
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 }
 
-
-header{
-    padding:100px 20px;
-    background:linear-gradient(#200000,#080808);
+body {
+  background-color: #080808;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Top Red Glow Background */
+  background-image: radial-gradient(circle at center top, rgba(229, 9, 20, 0.22) 0%, rgba(8, 8, 8, 1) 65%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
 }
 
-
-h1{
-    font-size:70px;
-    color:red;
-    text-shadow:0 0 20px red;
+/* ==========================================
+   2. NAVBAR
+   ========================================== */
+header {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px;
 }
 
-
-header p{
-    font-size:25px;
+.logo {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  cursor: pointer;
 }
 
-
-.btn{
-    display:inline-block;
-    margin:15px;
-    padding:15px 35px;
-    background:red;
-    color:white;
-    text-decoration:none;
-    border-radius:10px;
+.logo span {
+  color: #e50914;
 }
 
-
-.discord{
-    background:#5865F2;
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 28px;
 }
 
-
-.cards{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-    padding:50px;
+nav a {
+  color: #a3a3a3;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-
-.card{
-    background:#151515;
-    border:1px solid red;
-    padding:25px;
-    width:280px;
-    border-radius:15px;
+nav a.active, nav a:hover {
+  color: #ffffff;
 }
 
-
-.card a{
-    color:red;
+.nav-buttons {
+  display: flex;
+  gap: 12px;
 }
 
-
-footer{
-    padding:20px;
+.btn-login {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 9px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.3s, border-color 0.3s;
 }
+
+.btn-login:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-register {
+  background: #e50914;
+  border: none;
+  color: #ffffff;
+  padding: 9px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-register:hover {
+  background: #ff0f1a;
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   3. HERO SECTION
+   ========================================== */
+.hero {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-logo {
+  font-size: 85px;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 0 35px rgba(229, 9, 20, 0.7);
+  line-height: 0.95;
+  margin-bottom: 25px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: #d1d1d1;
+  margin-bottom: 35px;
+  letter-spacing: 0.5px;
+}
+
+.hero-subtitle span {
+  color: #e50914;
+  font-weight: 700;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-action {
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.btn-red {
+  background: #e50914;
+  color: #ffffff;
+  border: 1px solid #ff2a35;
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+}
+
+.btn-red:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(229, 9, 20, 0.8);
+}
+
+.btn-dark {
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  backdrop-filter: blur(5px);
+}
+
+.btn-dark:hover {
+  background: rgba(30, 30, 30, 0.9);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   4. SERVER STATS BAR
+   ========================================== */
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  background: rgba(15, 15, 15, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 45px;
+  border-radius: 40px;
+  margin-bottom: 50px;
+  backdrop-filter: blur(10px);
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.dot-green {
+  height: 10px;
+  width: 10px;
+  background-color: #2eb85c;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #2eb85c;
+}
+
+/* ==========================================
+   5. CARDS & DASHBOARD GRID
+   ========================================== */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 22px;
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 20px 60px 20px;
+}
+
+.card {
+  background: rgba(16, 16, 16, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 26px;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.3s;
+}
+
+.card:hover {
+  border-color: rgba(229, 9, 20, 0.3);
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #e50914;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 22px;
+}
+
+/* Card 1: Server Status Modes */
+.mode-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mode-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.mode-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.mode-count {
+  color: #2eb85c;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Card 2: Welcome Section */
+.welcome-text {
+  color: #a8a8a8;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.btn-learn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #e50914;
+  color: #e50914;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-learn:hover {
+  background: #e50914;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
+}
+
+/* Card 3: Announcement Section */
+.announcement-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.announcement-desc {
+  color: #a8a8a8;
+  font-size: 13px;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.announcement-date {
+  color: #666666;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+/* ==========================================
+   6. RESPONSIVE DESIGN (Mobile Friendly)
+   ========================================== */
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-bar {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+    }
