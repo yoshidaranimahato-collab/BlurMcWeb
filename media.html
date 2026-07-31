@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>BlurMc | Media Apply</title>
+
+<title>Media Rank Apply | BlurMC</title>
 
 <style>
 
 body{
 background:#000;
 color:white;
-font-family:Arial, sans-serif;
+font-family:Arial;
 }
 
 .box{
 width:90%;
 max-width:500px;
-margin:50px auto;
+margin:40px auto;
 background:#080808;
 padding:30px;
 border-radius:15px;
@@ -28,11 +29,6 @@ color:red;
 text-shadow:0 0 15px red;
 }
 
-p{
-text-align:center;
-color:#aaa;
-}
-
 input,textarea{
 width:100%;
 padding:12px;
@@ -41,13 +37,12 @@ background:#111;
 color:white;
 border:1px solid red;
 border-radius:8px;
-outline:none;
 }
+
 
 button{
 width:100%;
 padding:12px;
-margin-top:10px;
 background:red;
 color:white;
 border:none;
@@ -57,42 +52,143 @@ cursor:pointer;
 box-shadow:0 0 15px red;
 }
 
-button:hover{
-box-shadow:0 0 35px red;
+
+#success{
+display:none;
+margin-top:20px;
+padding:15px;
+background:#00aa44;
+border-radius:10px;
+text-align:center;
+box-shadow:0 0 15px #00ff66;
 }
+
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <div class="box">
 
 <h1>🔥 Media Rank Apply</h1>
 
-<p>Apply for Media Rank on BlurMC Network</p>
+
+<form id="applyForm">
 
 
-<form>
+<input id="ign" placeholder="Minecraft IGN" required>
 
-<input type="text" placeholder="Minecraft IGN" required>
+<input id="discord" placeholder="Discord Username" required>
 
-<input type="text" placeholder="Discord Username" required>
+<input id="youtube" placeholder="YouTube Channel Link" required>
 
-<input type="url" placeholder="Your YouTube Channel Link" required>
+<input id="subs" type="number" placeholder="YouTube Subscribers" required>
 
-<input type="number" placeholder="YouTube Subscribers" required>
+<textarea id="reason" placeholder="Why should we give you Media Rank?" required></textarea>
 
-<textarea rows="5" placeholder="Why should we give you Media Rank?"></textarea>
 
-<button>
+<button type="submit">
 Submit Application
 </button>
 
+
 </form>
 
+
+<div id="success">
+✅ Your application is submitted successfully!
 </div>
+
+
+</div>
+
+
+<script>
+
+
+const webhook = "https://discord.com/api/webhooks/1532333312087949342/Ao0dt46uZcigAOp1JNYWT6aV63BGFS-PT1rtuKav9MJyC_d5AM4KfPozz5Lx47Xpb-86";
+
+
+document.getElementById("applyForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+
+let data = {
+
+content:"🔥 **New Media Rank Application**",
+
+embeds:[{
+
+title:"Media Apply",
+
+color:16711680,
+
+fields:[
+
+{
+name:"Minecraft IGN",
+value:document.getElementById("ign").value
+},
+
+{
+name:"Discord",
+value:document.getElementById("discord").value
+},
+
+{
+name:"YouTube",
+value:document.getElementById("youtube").value
+},
+
+{
+name:"Subscribers",
+value:document.getElementById("subs").value
+},
+
+{
+name:"Reason",
+value:document.getElementById("reason").value
+}
+
+],
+
+footer:{
+text:"BlurMC Media System"
+}
+
+}]
+
+};
+
+
+fetch(webhook,{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify(data)
+
+});
+
+
+document.getElementById("success").style.display="block";
+
+this.reset();
+
+
+});
+
+
+</script>
+
 
 </body>
 </html>
